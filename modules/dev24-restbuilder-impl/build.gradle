@@ -1,0 +1,17 @@
+buildscript {
+    dependencies {
+        classpath group: "com.liferay", name: "com.liferay.gradle.plugins.rest.builder", version: "1.1.9"
+    }
+
+    repositories {
+        maven {
+            url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+        }
+    }
+}
+
+apply plugin: "com.liferay.portal.tools.rest.builder"
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.portal.api", version: "7.3.4-ga5"
+	compileOnly project(":modules:dev24-restbuilder-api")
+}

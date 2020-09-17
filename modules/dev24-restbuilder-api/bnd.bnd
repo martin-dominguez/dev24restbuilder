@@ -1,0 +1,7 @@
+Bundle-Name: dev24-restbuilder-api
+Bundle-SymbolicName: com.liferay.dev24.restbuilder.api
+Bundle-Version: 1.0.0
+
+Export-Package: \
+	com.liferay.dev24.restbuilder.api.dto.v1_0,\
+	com.liferay.dev24.restbuilder.api.resource.v1_0

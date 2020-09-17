@@ -1,0 +1,4 @@
+Bundle-Name: dev24-restbuilder-impl
+Bundle-SymbolicName: com.liferay.dev24.restbuilder.impl
+Bundle-Version: 1.0.0
+

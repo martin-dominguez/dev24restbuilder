@@ -1,0 +1,79 @@
+info:
+  description: "An example about how to create an API usign the Rest Builder Tool"
+  license:
+        name: "Apache 2.0"
+        url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  title: "Dev24 RestBuilder API"
+  version: v1.0
+openapi: 3.0.1
+components:
+  schemas:
+    Dev24Object:
+      description: "This is an example of an Object"
+      properties:
+        id:
+          description: "The Object Id"
+          type: integer
+        name:
+          description: "The Object Name"
+          type: string
+paths:
+  "/dev24-objects":
+    get:
+      description: "Gets a list of Objects"
+      operationId: getDev24ObjectPage
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Dev24Object"
+                type: array
+            application/xml:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Dev24Object"
+                type: array
+    post:
+      description: "Creates a new Object"
+      operationId: postDev24Object
+      requestBody:
+        content:
+          application/json:
+            schema:
+               $ref: "#/components/schemas/Dev24Object"
+          application/xml:
+            schema:
+               $ref: "#/components/schemas/Dev24Object"
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                 $ref: "#/components/schemas/Dev24Object"
+            application/xml:
+              schema:
+                 $ref: "#/components/schemas/Dev24Object"
+  "/dev24-object/{dev24ObjectId}":
+    get:
+      description: "Get and Object"
+      operationId: getDev24Object
+      parameters:
+        - in: path
+          name: dev24ObjectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                 $ref: "#/components/schemas/Dev24Object"
+            application/xml:
+              schema:
+                 $ref: "#/components/schemas/Dev24Object"

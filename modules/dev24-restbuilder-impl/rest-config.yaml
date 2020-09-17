@@ -1,0 +1,7 @@
+apiDir: "../dev24-restbuilder-api/src/main/java"
+apiPackagePath: "com.liferay.dev24.restbuilder.api"
+application:
+    baseURI: "/dev24-restbuilder"
+    className: "Dev24Restbuilder"
+    name: "Dev24.Restbuilder"
+author: "Liferay Dev24"
