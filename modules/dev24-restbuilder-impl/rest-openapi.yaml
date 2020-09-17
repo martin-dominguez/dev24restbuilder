@@ -18,7 +18,7 @@ components:
           description: "The Object Name"
           type: string
 paths:
-  "/dev24-objects":
+  "/dev24-object":
     get:
       description: "Gets a list of Objects"
       operationId: getDev24ObjectPage

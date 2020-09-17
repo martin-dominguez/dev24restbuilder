@@ -67,12 +67,12 @@ public abstract class BaseDev24ObjectResourceImpl
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -X 'GET' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-objects'  -u 'test@liferay.com:test'
+	 * curl -X 'GET' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-object'  -u 'test@liferay.com:test'
 	 */
 	@Override
 	@GET
 	@Operation(description = "Gets a list of Objects")
-	@Path("/dev24-objects")
+	@Path("/dev24-object")
 	@Produces({"application/json", "application/xml"})
 	@Tags(value = {})
 	public Page<Dev24Object> getDev24ObjectPage() throws Exception {
@@ -82,13 +82,13 @@ public abstract class BaseDev24ObjectResourceImpl
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-objects' -d $'{"id": ___, "name": ___}' --header 'Content-Type: application/json' -u 'test@liferay.com:test'
+	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-object' -d $'{"id": ___, "name": ___}' --header 'Content-Type: application/json' -u 'test@liferay.com:test'
 	 */
 	@Override
 	@Consumes({"application/json", "application/xml"})
 	@Operation(description = "Creates a new Object")
 	@POST
-	@Path("/dev24-objects")
+	@Path("/dev24-object")
 	@Produces({"application/json", "application/xml"})
 	@Tags(value = {})
 	public Dev24Object postDev24Object(Dev24Object dev24Object)
@@ -100,7 +100,7 @@ public abstract class BaseDev24ObjectResourceImpl
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-objects/batch'  -u 'test@liferay.com:test'
+	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-object/batch'  -u 'test@liferay.com:test'
 	 */
 	@Override
 	@Consumes("application/json")
@@ -108,7 +108,7 @@ public abstract class BaseDev24ObjectResourceImpl
 	@Parameters(
 		value = {@Parameter(in = ParameterIn.QUERY, name = "callbackURL")}
 	)
-	@Path("/dev24-objects/batch")
+	@Path("/dev24-object/batch")
 	@Produces("application/json")
 	@Tags(value = {})
 	public Response postDev24ObjectBatch(

@@ -46,7 +46,7 @@ public class Query {
 	 * curl -H 'Content-Type: text/plain; charset=utf-8' -X 'POST' 'http://localhost:8080/o/graphql' -d $'{"query": "query {dev24Object{items {__}, page, pageSize, totalCount}}"}' -u 'test@liferay.com:test'
 	 */
 	@GraphQLField(description = "Gets a list of Objects")
-	public Dev24ObjectPage dev24Objects() throws Exception {
+	public Dev24ObjectPage dev24Object() throws Exception {
 		return _applyComponentServiceObjects(
 			_dev24ObjectResourceComponentServiceObjects,
 			this::_populateResourceContext,
