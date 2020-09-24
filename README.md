@@ -1,4 +1,4 @@
-#INTERESTING LINKS
+# INTERESTING LINKS
 * Liferay Help Center > Liferay DXP Frameworks > Web Services > REST Builder (Official docs): https://help.liferay.com/hc/es/articles/360036343312-REST-Builder
 * Liferay.dev BLOGS - David's post: Use Liferay's REST Builder tool to generate your own Headless APIs https://liferay.dev/blogs/-/blogs/creating-headless-apis-part-1
 * Javier de Arcos' GitHub Account: RestBuilder Docs: https://github.com/javierdearcos/rest-builder-docs
@@ -7,7 +7,7 @@
 * Liferay Nexus Repository: https://repository.liferay.com/nexus/index.html
 * DEV 24 RESTBuilder example code: https://github.com/martin-dominguez/dev24restbuilder
 
-#OpenAPI Profile Creation Tips
+# OpenAPI Profile Creation Tips
 * Create your profile in the Swagger Editor, you’ll see your profile in awesome colors, but be careful, even if you don’t have errors, it doesn’t mean that it is going to compile in the REST Builder
 * Review indents (you should use spaces not tabs)
 * Check your spelling
