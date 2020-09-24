@@ -11,6 +11,7 @@ buildscript {
 }
 
 apply plugin: "com.liferay.portal.tools.rest.builder"
+
 dependencies {
 	compileOnly group: "com.liferay.portal", name: "release.portal.api", version: "7.3.4-ga5"
 	compileOnly project(":modules:dev24-restbuilder-api")

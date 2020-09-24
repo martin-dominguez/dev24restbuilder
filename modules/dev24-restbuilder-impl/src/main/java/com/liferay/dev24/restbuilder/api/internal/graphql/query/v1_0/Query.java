@@ -43,32 +43,31 @@ public class Query {
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -H 'Content-Type: text/plain; charset=utf-8' -X 'POST' 'http://localhost:8080/o/graphql' -d $'{"query": "query {dev24Object{items {__}, page, pageSize, totalCount}}"}' -u 'test@liferay.com:test'
+	 * curl -H 'Content-Type: text/plain; charset=utf-8' -X 'POST' 'http://localhost:8080/o/graphql' -d $'{"query": "query {dev24Objects{items {__}, page, pageSize, totalCount}}"}' -u 'test@liferay.com:test'
 	 */
 	@GraphQLField(description = "Gets a list of Objects")
-	public Dev24ObjectPage dev24Object() throws Exception {
+	public Dev24ObjectPage dev24Objects() throws Exception {
 		return _applyComponentServiceObjects(
 			_dev24ObjectResourceComponentServiceObjects,
 			this::_populateResourceContext,
 			dev24ObjectResource -> new Dev24ObjectPage(
-				dev24ObjectResource.getDev24ObjectPage()));
+				dev24ObjectResource.getDev24ObjectsPage()));
 	}
 
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -H 'Content-Type: text/plain; charset=utf-8' -X 'POST' 'http://localhost:8080/o/graphql' -d $'{"query": "query {dev24Object(dev24ObjectId: ___){id, name}}"}' -u 'test@liferay.com:test'
+	 * curl -H 'Content-Type: text/plain; charset=utf-8' -X 'POST' 'http://localhost:8080/o/graphql' -d $'{"query": "query {dev24Object(objectId: ___){id, name}}"}' -u 'test@liferay.com:test'
 	 */
-	@GraphQLField(description = "Get and Object")
-	public Dev24Object dev24Object(
-			@GraphQLName("dev24ObjectId") Integer dev24ObjectId)
+	@GraphQLField(description = "Get an Object by id")
+	public Dev24Object dev24Object(@GraphQLName("objectId") Integer objectId)
 		throws Exception {
 
 		return _applyComponentServiceObjects(
 			_dev24ObjectResourceComponentServiceObjects,
 			this::_populateResourceContext,
 			dev24ObjectResource -> dev24ObjectResource.getDev24Object(
-				dev24ObjectId));
+				objectId));
 	}
 
 	@GraphQLName("Dev24ObjectPage")

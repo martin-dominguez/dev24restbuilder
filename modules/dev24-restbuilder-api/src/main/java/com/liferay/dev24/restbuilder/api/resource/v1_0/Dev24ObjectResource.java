@@ -34,7 +34,7 @@ public interface Dev24ObjectResource {
 		return FactoryHolder.factory.create();
 	}
 
-	public Page<Dev24Object> getDev24ObjectPage() throws Exception;
+	public Page<Dev24Object> getDev24ObjectsPage() throws Exception;
 
 	public Dev24Object postDev24Object(Dev24Object dev24Object)
 		throws Exception;
@@ -42,7 +42,7 @@ public interface Dev24ObjectResource {
 	public Response postDev24ObjectBatch(String callbackURL, Object object)
 		throws Exception;
 
-	public Dev24Object getDev24Object(Integer dev24ObjectId) throws Exception;
+	public Dev24Object getDev24Object(Integer objectId) throws Exception;
 
 	public default void setContextAcceptLanguage(
 		AcceptLanguage contextAcceptLanguage) {

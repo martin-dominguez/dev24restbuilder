@@ -31,22 +31,22 @@ public class Dev24ObjectResourceImpl extends BaseDev24ObjectResourceImpl {
 			return ob;
 		}
 		
-		public Page<Dev24Object> getDev24ObjectPage() throws Exception {
-			List<User> users = UserLocalServiceUtil.getUsers(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-			List<Dev24Object> objects = new ArrayList<>();
-			for (User user : users) {
-				Dev24Object ob = new Dev24Object();
-				ob.setId((int) user.getUserId());
-				ob.setName(user.getFullName());
-				objects.add(ob);
-			}
-			return Page.of(objects);
+	public Page<Dev24Object> getDev24ObjectsPage() throws Exception {
+		List<User> users = UserLocalServiceUtil.getUsers(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		List<Dev24Object> objects = new ArrayList<>();
+		for (User user : users) {
+			Dev24Object ob = new Dev24Object();
+			ob.setId((int) user.getUserId());
+			ob.setName(user.getFullName());
+			objects.add(ob);
 		}
-		
-		public Dev24Object postDev24Object(Dev24Object dev24Object)
-				throws Exception {
-				Dev24Object ob = dev24Object;
-				ob.setName(dev24Object.getName() + " (CREATED)");
-				return dev24Object;
-		}
+		return Page.of(objects);
+	}
+	
+	public Dev24Object postDev24Object(Dev24Object dev24Object)
+			throws Exception {
+			Dev24Object ob = dev24Object;
+			ob.setName(dev24Object.getName() + " (CREATED)");
+			return dev24Object;
+	}
 }

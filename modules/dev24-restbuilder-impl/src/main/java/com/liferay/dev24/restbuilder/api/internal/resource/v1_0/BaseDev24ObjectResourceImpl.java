@@ -26,6 +26,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 
 import java.io.Serializable;
@@ -67,30 +68,30 @@ public abstract class BaseDev24ObjectResourceImpl
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -X 'GET' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-object'  -u 'test@liferay.com:test'
+	 * curl -X 'GET' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-objects'  -u 'test@liferay.com:test'
 	 */
 	@Override
 	@GET
 	@Operation(description = "Gets a list of Objects")
-	@Path("/dev24-object")
+	@Path("/dev24-objects")
 	@Produces({"application/json", "application/xml"})
-	@Tags(value = {})
-	public Page<Dev24Object> getDev24ObjectPage() throws Exception {
+	@Tags(value = {@Tag(name = "Dev24Object")})
+	public Page<Dev24Object> getDev24ObjectsPage() throws Exception {
 		return Page.of(Collections.emptyList());
 	}
 
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-object' -d $'{"id": ___, "name": ___}' --header 'Content-Type: application/json' -u 'test@liferay.com:test'
+	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-objects' -d $'{"id": ___, "name": ___}' --header 'Content-Type: application/json' -u 'test@liferay.com:test'
 	 */
 	@Override
 	@Consumes({"application/json", "application/xml"})
 	@Operation(description = "Creates a new Object")
 	@POST
-	@Path("/dev24-object")
+	@Path("/dev24-objects")
 	@Produces({"application/json", "application/xml"})
-	@Tags(value = {})
+	@Tags(value = {@Tag(name = "Dev24Object")})
 	public Dev24Object postDev24Object(Dev24Object dev24Object)
 		throws Exception {
 
@@ -100,7 +101,7 @@ public abstract class BaseDev24ObjectResourceImpl
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-object/batch'  -u 'test@liferay.com:test'
+	 * curl -X 'POST' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-objects/batch'  -u 'test@liferay.com:test'
 	 */
 	@Override
 	@Consumes("application/json")
@@ -108,9 +109,9 @@ public abstract class BaseDev24ObjectResourceImpl
 	@Parameters(
 		value = {@Parameter(in = ParameterIn.QUERY, name = "callbackURL")}
 	)
-	@Path("/dev24-object/batch")
+	@Path("/dev24-objects/batch")
 	@Produces("application/json")
-	@Tags(value = {})
+	@Tags(value = {@Tag(name = "Dev24Object")})
 	public Response postDev24ObjectBatch(
 			@Parameter(hidden = true) @QueryParam("callbackURL") String
 				callbackURL,
@@ -136,20 +137,18 @@ public abstract class BaseDev24ObjectResourceImpl
 	/**
 	 * Invoke this method with the command line:
 	 *
-	 * curl -X 'GET' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-object/{dev24ObjectId}'  -u 'test@liferay.com:test'
+	 * curl -X 'GET' 'http://localhost:8080/o/dev24-restbuilder/v1.0/dev24-objects/{objectId}'  -u 'test@liferay.com:test'
 	 */
 	@Override
 	@GET
-	@Operation(description = "Get and Object")
-	@Parameters(
-		value = {@Parameter(in = ParameterIn.PATH, name = "dev24ObjectId")}
-	)
-	@Path("/dev24-object/{dev24ObjectId}")
+	@Operation(description = "Get an Object by id")
+	@Parameters(value = {@Parameter(in = ParameterIn.PATH, name = "objectId")})
+	@Path("/dev24-objects/{objectId}")
 	@Produces({"application/json", "application/xml"})
-	@Tags(value = {})
+	@Tags(value = {@Tag(name = "Dev24Object")})
 	public Dev24Object getDev24Object(
-			@NotNull @Parameter(hidden = true) @PathParam("dev24ObjectId")
-				Integer dev24ObjectId)
+			@NotNull @Parameter(hidden = true) @PathParam("objectId") Integer
+				objectId)
 		throws Exception {
 
 		return new Dev24Object();
@@ -195,7 +194,7 @@ public abstract class BaseDev24ObjectResourceImpl
 			Map<String, Serializable> parameters, String search)
 		throws Exception {
 
-		return null;
+		return getDev24ObjectsPage();
 	}
 
 	@Override
